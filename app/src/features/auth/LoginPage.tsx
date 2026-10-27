@@ -28,7 +28,7 @@ export function LoginPage() {
           <span className="h-10 w-10 rounded-xl bg-white/15 grid place-items-center">
             <Wine className="h-5 w-5" />
           </span>
-          <span className="display text-2xl">Cellarhand</span>
+          <span className="display text-2xl">Vatroom</span>
         </div>
         <div className="relative max-w-md">
           <h1 className="display text-[44px] leading-[1.05]">Every gallon, from the vine to the bond report.</h1>
@@ -42,7 +42,7 @@ export function LoginPage() {
             <span className="h-9 w-9 rounded-xl bg-accent text-accent-ink grid place-items-center">
               <Wine className="h-4 w-4" />
             </span>
-            <span className="display text-xl">Cellarhand</span>
+            <span className="display text-xl">Vatroom</span>
           </div>
           <h2 className="display text-[30px]">Sign in</h2>
           <p className="text-ink-2 text-sm mt-1">Use your winery account. Accounts are scoped to the organizations you belong to.</p>

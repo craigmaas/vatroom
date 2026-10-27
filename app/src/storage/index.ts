@@ -10,7 +10,7 @@ export function createAdapter(): StorageAdapter {
   const mode = import.meta.env.VITE_STORAGE ?? 'local'
   if (mode === 'cloud') {
     const base = import.meta.env.VITE_API_URL ?? ''
-    return new CloudAdapter(base, async () => sessionStorage.getItem('cellarhand.token'))
+    return new CloudAdapter(base, async () => sessionStorage.getItem('vatroom.token'))
   }
   return new LocalStorageAdapter()
 }

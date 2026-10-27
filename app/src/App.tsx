@@ -37,7 +37,7 @@ function Boot({ children }: { children: React.ReactNode }) {
     return (
       <div className="h-full grid place-items-center bg-bg">
         <div className="text-center">
-          <div className="display text-3xl text-ink">Cellarhand</div>
+          <div className="display text-3xl text-ink">Vatroom</div>
           <div className="text-ink-3 text-sm mt-2">Opening the cellar…</div>
         </div>
       </div>

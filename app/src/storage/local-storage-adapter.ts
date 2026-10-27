@@ -1,7 +1,9 @@
 import type { WorkspaceSnapshot } from '@/domain/types'
 import type { StorageAdapter } from './adapter'
 
-const KEY = 'cellarhand.workspace.v1'
+const KEY = 'vatroom.workspace.v1'
+/** Key used before the product was renamed; migrated on first load. */
+const LEGACY_KEY = 'cellarhand.workspace.v1'
 
 /**
  * Persists the workspace to `localStorage` and keeps other open tabs in sync
@@ -12,11 +14,18 @@ export class LocalStorageAdapter implements StorageAdapter {
 
   async load(): Promise<WorkspaceSnapshot | null> {
     try {
-      const raw = localStorage.getItem(KEY)
+      let raw = localStorage.getItem(KEY)
+      if (!raw) {
+        raw = localStorage.getItem(LEGACY_KEY)
+        if (raw) {
+          localStorage.setItem(KEY, raw)
+          localStorage.removeItem(LEGACY_KEY)
+        }
+      }
       if (!raw) return null
       return JSON.parse(raw) as WorkspaceSnapshot
     } catch (err) {
-      console.warn('[cellarhand] could not read local storage', err)
+      console.warn('[vatroom] could not read local storage', err)
       return null
     }
   }
@@ -25,7 +34,7 @@ export class LocalStorageAdapter implements StorageAdapter {
     try {
       localStorage.setItem(KEY, JSON.stringify(snapshot))
     } catch (err) {
-      console.warn('[cellarhand] could not write local storage', err)
+      console.warn('[vatroom] could not write local storage', err)
       throw err
     }
   }

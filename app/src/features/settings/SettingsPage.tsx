@@ -107,7 +107,7 @@ export function SettingsPage() {
 
       {tab === 'organizations' && (
         <div className="space-y-4">
-          <Card title="Your organizations" subtitle="Cellarhand is multi-winery: each organization has its own cellar, lots and records. Switch from the sidebar." actions={<Button icon={<Plus className="h-4 w-4" />} onClick={() => setNewOrg(true)}>New organization</Button>}>
+          <Card title="Your organizations" subtitle="Vatroom is multi-winery: each organization has its own cellar, lots and records. Switch from the sidebar." actions={<Button icon={<Plus className="h-4 w-4" />} onClick={() => setNewOrg(true)}>New organization</Button>}>
             <ul className="divide-y divide-border">
               {orgs
                 .filter((o) => user.memberships.some((m) => m.orgId === o.id))
@@ -206,7 +206,7 @@ export function SettingsPage() {
           </Card>
           <Card title="Backup & restore" subtitle="Whole-workspace JSON">
             <div className="flex flex-wrap gap-2">
-              <Button icon={<Download className="h-4 w-4" />} onClick={() => download(`cellarhand-backup-${new Date().toISOString().slice(0, 10)}.json`, JSON.stringify(exportSnapshot(), null, 2), 'application/json')}>
+              <Button icon={<Download className="h-4 w-4" />} onClick={() => download(`vatroom-backup-${new Date().toISOString().slice(0, 10)}.json`, JSON.stringify(exportSnapshot(), null, 2), 'application/json')}>
                 Download backup
               </Button>
               <Button icon={<Upload className="h-4 w-4" />} onClick={() => fileRef.current?.click()}>

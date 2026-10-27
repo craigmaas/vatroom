@@ -36,7 +36,7 @@ import { importBlendedLot } from '@/importers/blended'
 
 const adapter: StorageAdapter = createAdapter()
 
-const SESSION_KEY = 'cellarhand.session'
+const SESSION_KEY = 'vatroom.session'
 interface Session {
   userId: ID | null
   orgId: ID | null

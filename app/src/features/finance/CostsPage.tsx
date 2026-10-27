@@ -68,7 +68,7 @@ export function CostsPage() {
       lines.push([no, fmtDate(c.date), c.description, QB_ACCOUNTS[c.category], c.amount.toFixed(2), '', c.description, c.vendor ?? '', lot?.code ?? 'Unallocated'])
       lines.push([no, fmtDate(c.date), c.description, '2000 · Accounts Payable', '', c.amount.toFixed(2), c.description, c.vendor ?? '', lot?.code ?? 'Unallocated'])
     })
-    download('cellarhand-quickbooks-journal.csv', toCsv(lines), 'text/csv')
+    download('vatroom-quickbooks-journal.csv', toCsv(lines), 'text/csv')
     m.unsynced.forEach((c) => upsert('costs', { ...c, synced: true, qbRef: c.qbRef ?? 'exported' }))
     toast({ title: 'QuickBooks export ready', body: `${m.unsynced.length} entries written as journal lines, classed by lot.`, tone: 'good' })
   }
@@ -78,7 +78,7 @@ export function CostsPage() {
       <PageHeader
         eyebrow="Finance"
         title="Costs & QuickBooks"
-        subtitle="Cellarhand owns the cost build-up per lot; QuickBooks stays the general ledger. Push entries over as classed journal lines."
+        subtitle="Vatroom owns the cost build-up per lot; QuickBooks stays the general ledger. Push entries over as classed journal lines."
         actions={
           <>
             <Button icon={<Download className="h-4 w-4" />} onClick={exportQb} disabled={!m.unsynced.length}>
@@ -212,7 +212,7 @@ export function CostsPage() {
               <p>
                 <strong className="text-ink">Our read of the current setup:</strong> QuickBooks is used for bills (grapes, materials, barrels), payroll, invoicing custom-crush clients and bulk sales, and year-end COGS — while production costs per lot live in spreadsheets.
               </p>
-              <p>Cellarhand replaces the spreadsheet half: every cost is tagged to a lot, overhead is spread by gallons, and the result exports as journal entries classed by lot so the accountant never re-keys anything.</p>
+              <p>Vatroom replaces the spreadsheet half: every cost is tagged to a lot, overhead is spread by gallons, and the result exports as journal entries classed by lot so the accountant never re-keys anything.</p>
               <div className="flex items-center gap-1.5 text-ink-3 text-[12px] pt-1">
                 <RefreshCw className="h-3.5 w-3.5" /> Two-way sync via the QuickBooks Online API is planned for the cloud release.
               </div>

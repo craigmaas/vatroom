@@ -93,7 +93,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           <button onClick={() => setOpen(true)} className="p-2 -ml-2 text-ink-2" aria-label="Open menu">
             <Menu className="h-5 w-5" />
           </button>
-          <span className="display text-lg">Cellarhand</span>
+          <span className="display text-lg">Vatroom</span>
           <button onClick={() => setPalette(true)} className="ml-auto p-2 text-ink-2" aria-label="Search">
             <Search className="h-5 w-5" />
           </button>
@@ -125,7 +125,7 @@ function OrgSwitcher() {
           <Wine className="h-4 w-4" />
         </span>
         <span className="min-w-0 flex-1">
-          <span className="block text-[11px] uppercase tracking-wider text-ink-3 leading-none">Cellarhand</span>
+          <span className="block text-[11px] uppercase tracking-wider text-ink-3 leading-none">Vatroom</span>
           <span className="block text-[14px] font-semibold text-ink truncate leading-tight mt-0.5">{org?.name}</span>
         </span>
         <ChevronsUpDown className="h-4 w-4 text-ink-3 shrink-0" />

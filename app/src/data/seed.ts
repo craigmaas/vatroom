@@ -347,7 +347,7 @@ export function buildVictorVineyards(): OrgData {
 
   // tasks for the coming days
   const tasks: Task[] = [
-    { id: 't_1', orgId: ORG_ID, title: 'Free SO₂ check — all aging lots', kind: 'measurement', dueAt: daysAhead(1), assigneeId: 'u_cellar', status: 'open', instructions: 'Target 28–32 ppm molecular 0.5. Record in Cellarhand, add KMBS if under 25 ppm.', recurrenceDays: 21 },
+    { id: 't_1', orgId: ORG_ID, title: 'Free SO₂ check — all aging lots', kind: 'measurement', dueAt: daysAhead(1), assigneeId: 'u_cellar', status: 'open', instructions: 'Target 28–32 ppm molecular 0.5. Record in Vatroom, add KMBS if under 25 ppm.', recurrenceDays: 21 },
     { id: 't_2', orgId: ORG_ID, title: 'Top barrels GRUBA25-01', kind: 'topping', lotId: gru?.id, vesselId: 'v_GRUBA25-01-BG', dueAt: daysAhead(2), assigneeId: 'u_cellar', status: 'open', recurrenceDays: 14 },
     { id: 't_3', orgId: ORG_ID, title: 'Rack OGLSB25-01 off lees E10 → B6', kind: 'racking', lotId: ogl?.id, vesselId: 'v_E10', dueAt: daysAhead(4), assigneeId: 'u_cellar', status: 'open', instructions: 'Gas B6 first. Pull a sample before and after for turbidity.' },
     { id: 't_4', orgId: ORG_ID, title: 'CIP tanks K1–K3 before harvest', kind: 'cleaning', dueAt: daysAhead(6), assigneeId: 'u_cellar', status: 'open' },
@@ -390,7 +390,7 @@ export function buildVictorVineyards(): OrgData {
     costs,
     audit: [{ id: newId('a'), orgId: ORG_ID, at: iso(now), action: 'import', entity: 'workspace', details: `Imported ${lots.length} lots and ${events.length} events from Blended exports${warnings.length ? ` (${warnings.length} reconciliations)` : ''}` }],
   }
-  if (warnings.length) console.info('[cellarhand] import reconciliations:', warnings)
+  if (warnings.length) console.info('[vatroom] import reconciliations:', warnings)
   return data
 }
 

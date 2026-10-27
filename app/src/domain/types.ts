@@ -1,5 +1,5 @@
 /**
- * Cellarhand domain model.
+ * Vatroom domain model.
  *
  * Everything is scoped to an Organization (a winery). All ids are strings so the
  * model can move to a cloud database without renumbering. Dates are ISO strings.
