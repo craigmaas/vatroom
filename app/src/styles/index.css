@@ -1,0 +1,262 @@
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------------
+   Cellarhand design tokens
+   A warm, tactile palette: parchment surfaces, ink text, wine accent.
+   Every color is a token so dark mode is a re-definition, not a flip.
+------------------------------------------------------------------- */
+:root {
+  color-scheme: light;
+  --bg: #f4efe6;
+  --surface: #fffdf9;
+  --surface-2: #f3eee5;
+  --surface-3: #e9e2d6;
+  --border: #e1d9cb;
+  --border-strong: #c9bfae;
+  --ink: #1f1a17;
+  --ink-2: #5c544c;
+  --ink-3: #8c837a;
+  --accent: #7a1f3d;
+  --accent-hover: #65172f;
+  --accent-ink: #fff8f4;
+  --accent-soft: #f6e4ea;
+  --accent-soft-ink: #6b1b36;
+  --red-wine: #8b2942;
+  --white-wine: #c9a227;
+  --rose-wine: #d98a9e;
+  --good: #2f7d4f;
+  --good-soft: #e3f1e7;
+  --warn: #b86e0b;
+  --warn-soft: #fbeedb;
+  --danger: #b42b2b;
+  --danger-soft: #f8e3e3;
+  --info: #3f6fb5;
+  --info-soft: #e3ebf7;
+  --focus: #3f6fb5;
+  --shadow: 0 1px 2px rgb(31 26 23 / 0.06), 0 8px 24px -12px rgb(31 26 23 / 0.18);
+  --shadow-lg: 0 2px 4px rgb(31 26 23 / 0.08), 0 24px 48px -16px rgb(31 26 23 / 0.28);
+  /* chart categorical palette — validated for CVD in both modes */
+  --series-1: #8b2942;
+  --series-2: #d9a21b;
+  --series-3: #3f6fb5;
+  --series-4: #5a8a4a;
+  --series-5: #7a5cc4;
+  --series-6: #c8653a;
+  --series-7: #1f9a8a;
+  --series-8: #b5432a;
+  --grid: #e9e2d6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --bg: #15120f;
+    --surface: #1e1a17;
+    --surface-2: #26211d;
+    --surface-3: #312a25;
+    --border: #38302a;
+    --border-strong: #4e443c;
+    --ink: #f1ebe2;
+    --ink-2: #b9b0a4;
+    --ink-3: #847b71;
+    --accent: #d2607f;
+    --accent-hover: #e07693;
+    --accent-ink: #1e0a11;
+    --accent-soft: #3a1f29;
+    --accent-soft-ink: #f1b9c9;
+    --red-wine: #c9506e;
+    --white-wine: #d9b85c;
+    --rose-wine: #e39aae;
+    --good: #5fb37f;
+    --good-soft: #1d3326;
+    --warn: #e2a24a;
+    --warn-soft: #3a2b16;
+    --danger: #e36b6b;
+    --danger-soft: #3d1d1d;
+    --info: #6b95d8;
+    --info-soft: #1c2740;
+    --focus: #6b95d8;
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -12px rgb(0 0 0 / 0.6);
+    --shadow-lg: 0 2px 4px rgb(0 0 0 / 0.5), 0 24px 48px -16px rgb(0 0 0 / 0.7);
+    --series-1: #c9506e;
+    --series-2: #b8891c;
+    --series-3: #5d88cc;
+    --series-4: #6f9c5c;
+    --series-5: #8f78d6;
+    --series-6: #d1734a;
+    --series-7: #2fa392;
+    --series-8: #c75a40;
+    --grid: #2e2823;
+  }
+}
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #15120f;
+  --surface: #1e1a17;
+  --surface-2: #26211d;
+  --surface-3: #312a25;
+  --border: #38302a;
+  --border-strong: #4e443c;
+  --ink: #f1ebe2;
+  --ink-2: #b9b0a4;
+  --ink-3: #847b71;
+  --accent: #d2607f;
+  --accent-hover: #e07693;
+  --accent-ink: #1e0a11;
+  --accent-soft: #3a1f29;
+  --accent-soft-ink: #f1b9c9;
+  --red-wine: #c9506e;
+  --white-wine: #d9b85c;
+  --rose-wine: #e39aae;
+  --good: #5fb37f;
+  --good-soft: #1d3326;
+  --warn: #e2a24a;
+  --warn-soft: #3a2b16;
+  --danger: #e36b6b;
+  --danger-soft: #3d1d1d;
+  --info: #6b95d8;
+  --info-soft: #1c2740;
+  --focus: #6b95d8;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -12px rgb(0 0 0 / 0.6);
+  --shadow-lg: 0 2px 4px rgb(0 0 0 / 0.5), 0 24px 48px -16px rgb(0 0 0 / 0.7);
+  --series-1: #c9506e;
+  --series-2: #b8891c;
+  --series-3: #5d88cc;
+  --series-4: #6f9c5c;
+  --series-5: #8f78d6;
+  --series-6: #d1734a;
+  --series-7: #2fa392;
+  --series-8: #c75a40;
+  --grid: #2e2823;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-soft-ink: var(--accent-soft-ink);
+  --color-red-wine: var(--red-wine);
+  --color-white-wine: var(--white-wine);
+  --color-rose-wine: var(--rose-wine);
+  --color-good: var(--good);
+  --color-good-soft: var(--good-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --shadow-card: var(--shadow);
+  --shadow-pop: var(--shadow-lg);
+  --radius-card: 14px;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-feature-settings: 'tnum' 1, 'cv11' 1;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1,
+h2,
+h3,
+.display {
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 72, 'SOFT' 30;
+  letter-spacing: -0.01em;
+}
+.mono {
+  font-family: var(--font-mono);
+  font-feature-settings: 'tnum' 1;
+}
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+/* focus — visible, never color-only */
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* subtle paper grain on the app background */
+.paper::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  background-image: radial-gradient(rgb(0 0 0 / 0.025) 1px, transparent 1px);
+  background-size: 3px 3px;
+  z-index: 0;
+}
+
+/* scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+
+/* the wine fill inside a tank glyph gently "sloshes" on hover */
+@keyframes slosh {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1.5px);
+  }
+}
+.tank-glyph:hover .tank-fill {
+  animation: slosh 1.6s ease-in-out infinite;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-up {
+  animation: fade-up 0.28s ease-out both;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white;
+    color: black;
+  }
+  .print-sheet {
+    box-shadow: none !important;
+    border: none !important;
+  }
+}

@@ -1,0 +1,7 @@
+- Would be cool to translate handwritten images to data entry.
+- Ability to create inventory and tank maps.
+- Would be nice to have "official" notes as well as other notes that don't need to be documented about the process but are good for the winemaker to know.
+- I don't really know what QuickBooks is used for, but ideally eliminate the need for that.
+- There are different events, such as crushing, bottling, etc which need to be captured with dates. Those generally impact a lot in some way (adding more or less grapes).
+- Calculation of gallons given shape of tank/tank specs and where the wine is is very helpful. (Aside, can you send me some pictures of the specs on the wine tank?)
+- Please send any excel sheets that have all data we need and then I can get something stood up
